@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useDropzone } from "react-dropzone";
-import axios from "axios";
 
 const FileUploadForm = () => {
     const [uploadedUrl, setUploadedUrl] = useState<string | null>(null);
