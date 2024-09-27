@@ -1,0 +1,31 @@
+## AWS S3 Bucket setups
+-   Create a new AWS S3 bucket (with all default settings)
+-   Change the permission for the bucket (to public)
+-   Set the policy for the bucket (to public)
+    Now you can see the images publicly available
+
+-   Go to AWS IAM and create a new user (User group: 'AmazonS3FullAccess')
+-   Go to the created user > Click 'Create access key' (select other option) > Leave the 'Description tag value' as empty > Create access key
+    Copy the access key (NEXT_AWS_S3_ACCESS_KEY_ID),
+    Copy the secret access key (NEXT_AWS_S3_SECRET_ACCESS_KEY),
+
+## .env Configuration
+```
+    NEXT_AWS_S3_REGION=s3_region
+    NEXT_AWS_S3_ACCESS_KEY_ID=access_key
+    NEXT_AWS_S3_SECRET_ACCESS_KEY=secret_access_key
+    NEXT_AWS_S3_BUCKET_NAME=your_s3_bucket_name
+
+    DATABASE_URL=your_database_url
+```
+
+## Install Dependancies 
+-   Install S3 Client (`npm install @aws-sdk/client-s3`)
+-   Install S3 Client (`npm install @aws-sdk/lib-storage`)      // optional
+-   Install Neon's serverless function (`npm install @neondatabase/serverless`)
+-   Install React dropzone (`npm install react-dropzone`)
+
+-   Create a new utils file for s3-client
+-   Create the API route for the file uploading
+-   Create the Basic UI with React dropzone and call the API
+    🎊 Test the application. Will work properly.
