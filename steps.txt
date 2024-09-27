@@ -29,3 +29,6 @@
 -   Create the API route for the file uploading
 -   Create the Basic UI with React dropzone and call the API
     🎊 Test the application. Will work properly.
+
+## Additional Improvements with Shadcn UI
+-   Initialize the the Schacn UI (`npx shadcn@latest init`)
