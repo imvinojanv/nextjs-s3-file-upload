@@ -71,3 +71,17 @@
     `/components/edgestore/multi-file-dropzone.tsx,
 
 
+## File upload with Bunny CDN
+-   Create an account in bunny.net
+-   Click 'Storage' > Create new storage zone > Will redirect to file manager dashboard
+-   Click 'FTP & API Access' > Copy the 'Password'
+-   Setup the .env variables:
+    NEXT_PUBLIC_BUNNY_CDN_ACCESS_KEY: Password
+    NEXT_PUBLIC_BUNNY_STORAGE_ZONE_NAME: Storage zone name
+    NEXT_PUBLIC_BUNNY_STORAGE_BASE_URL: https://STORAGE_ZONE_NAME.b-cdn.net
+-   Connect Pull Zone to activate the URL publicly
+
+-   Create an API route to call the Bunny API
+    `/app/api/bunny-cdn/route.ts`
+-   Create a file uploader component
+    `/app/bunny-cdn/page.tsx`
