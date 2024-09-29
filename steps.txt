@@ -55,6 +55,19 @@
 -   Follow the official documentation to create the necessary files
     `/app/api/edgestore/[...edgestore]/route.ts`,
     `/utils/edgestore.ts`,
-    `/app/edgestore/layout.tsx`
+    `/app/edgestore/layout.tsx`,
+    `/app/edgestore/page.tsx`
+
+-   For Single Image upload
+    `/app/edgestore/_components/single-image-uploader.tsx`,
+    `/components/edgestore/single-image-dropzone.tsx,
+
+-   For Multi Image upload
+    `/app/edgestore/_components/multi-image-uploader.tsx`,
+    `/components/edgestore/multi-image-dropzone.tsx,
+
+-   For Multi File upload
+    `/app/edgestore/_components/multi-file-uploader.tsx`,
+    `/components/edgestore/multi-file-dropzone.tsx,
 
 

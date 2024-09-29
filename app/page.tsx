@@ -4,6 +4,7 @@ import Link from "next/link"
 const routes = [
     { name: "AWS S3 Bucket", href: "/s3" },
     { name: "Edgestore", href: "/edgestore" },
+    { name: "Edgestore with S3", href: "/edgestore-s3" },
 ]
 
 const Home = () => {
