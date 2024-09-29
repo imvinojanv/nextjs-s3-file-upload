@@ -13,6 +13,8 @@ type Context = {
 function createContext({ req }: CreateContextOptions): Context {
     // get the session from your auth provider
     // const session = getSession(req);
+    console.log(req);
+    
     return {
         userId: "1234",
         userRole: "admin",

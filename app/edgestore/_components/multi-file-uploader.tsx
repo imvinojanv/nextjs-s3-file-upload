@@ -24,7 +24,8 @@ export default function MultiFileUploader() {
             }
             return newFileStates;
         });
-    }
+    };
+    console.log("URLs", urls);
 
     return (
         <div className="flex flex-col items-center m-6">
@@ -59,6 +60,7 @@ export default function MultiFileUploader() {
                                     setUrls((prev) => [...prev, res.url]);
                                 } catch (err) {
                                     updateFileProgress(addedFileState.key, "ERROR");
+                                    console.error(err);
                                 }
                             })
                         );

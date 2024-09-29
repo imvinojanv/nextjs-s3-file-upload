@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
 import { FileUploader2 } from "@/components/file-uploader-2";
 
 const FileUploaderDialog2 = () => {

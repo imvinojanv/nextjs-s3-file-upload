@@ -54,6 +54,7 @@ const MultiImageUploader = () => {
                                 console.log(res);
                             } catch (err) {
                                 updateFileProgress(addedFileState.key, 'ERROR');
+                                console.error(err);
                             }
                         }),
                     );

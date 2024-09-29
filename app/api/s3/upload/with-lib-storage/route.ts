@@ -36,7 +36,7 @@ export async function POST(
         const fileUrl = `https://${process.env.NEXT_AWS_S3_BUCKET_NAME}.s3.${process.env.NEXT_AWS_S3_REGION}.amazonaws.com/${fileKey}`;
 
         // Store the file URL in the database
-        const data = await sql`INSERT INTO s3 (name, img_url) VALUES (${file.name}, ${fileUrl})`;
+        await sql`INSERT INTO s3 (name, img_url) VALUES (${file.name}, ${fileUrl})`;
 
         return NextResponse.json({ url: fileUrl, message: "Failed to upload file" }, { status: 200 });
     } catch (error) {

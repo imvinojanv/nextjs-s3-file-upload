@@ -83,8 +83,9 @@ export function FileUploader1(props: FileUploader1Props) {
                     await onUpload(updatedFiles);
                     setFiles([]);
                     toast.success("Files uploaded successfully");
-                } catch (error: any) {
-                    toast.error(`Failed to upload files: ${error.message}`);
+                } catch (error) {
+                    toast.error(`Failed to upload files`);
+                    console.error(error);
                 }
             }
         },

@@ -90,8 +90,9 @@ export function FileUploader2(props: FileUploader2Props) {
                             [fileName]: progress,
                         }));
                     });
-                } catch (error: any) {
-                    toast.error(`Failed to upload files: ${error.message}`);
+                } catch (error) {
+                    toast.error(`Failed to upload files`);
+                    console.error(error);
                 }
             }
         },

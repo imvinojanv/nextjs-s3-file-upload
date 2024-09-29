@@ -35,6 +35,7 @@ const FileUploaderDialog1 = () => {
             }
         } catch (error) {
             toast.error("An error occurred during file upload.");
+            console.error(error);
         } finally {
             setIsUploading(false);
         }

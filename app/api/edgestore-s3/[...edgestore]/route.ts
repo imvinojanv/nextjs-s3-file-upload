@@ -12,6 +12,8 @@ type Context = {
 };
 
 function createContext({ req }: CreateContextOptions): Context {
+    console.log(req);
+    
     return {
         userId: "1234",
         userRole: "admin",
