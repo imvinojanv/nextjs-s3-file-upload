@@ -3,10 +3,10 @@
 import { useState } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { FileUploader } from "@/components/file-uploader";
+import { FileUploader1 } from "@/components/file-uploader-1";
 import { toast } from "sonner";
 
-const FileUploaderDialog = () => {
+const FileUploaderDialog1 = () => {
     const [files, setFiles] = useState<File[]>([]);
     const [uploadedUrls, setUploadedUrls] = useState<string[]>([]);
     const [isUploading, setIsUploading] = useState(false);
@@ -20,7 +20,7 @@ const FileUploaderDialog = () => {
         files.forEach((file) => formData.append("files", file));
 
         try {
-            const response = await fetch("/api/upload/only-upload", {
+            const response = await fetch("/api/s3/upload/only-upload", {
                 method: "POST",
                 body: formData,
             });
@@ -55,7 +55,7 @@ const FileUploaderDialog = () => {
                             Drag and drop your files here or click to browse.
                         </DialogDescription>
                     </DialogHeader>
-                    <FileUploader
+                    <FileUploader1
                         maxFileCount={8}
                         maxSize={8 * 1024 * 1024}
                         onValueChange={setFiles}
@@ -74,4 +74,4 @@ const FileUploaderDialog = () => {
     );
 };
 
-export default FileUploaderDialog;
+export default FileUploaderDialog1;

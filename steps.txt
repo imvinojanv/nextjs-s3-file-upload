@@ -27,17 +27,34 @@
 ```
 
 ## Install Dependancies 
--   Install S3 Client (`npm install @aws-sdk/client-s3`)
--   Install S3 Client (`npm install @aws-sdk/lib-storage`)      // optional
+-   Install AWS S3 (`npm install @aws-sdk/client-s3 @aws-sdk/s3-request-presigner`)
+-   Install AWS lib store Client (`npm install @aws-sdk/lib-storage`)      // optional
 -   Install Neon's serverless function (`npm install @neondatabase/serverless`)
 -   Install React dropzone (`npm install react-dropzone`)
 
 -   Create a new utils file for s3-client
--   Create the API route for the file uploading
--   Create the Basic UI with React dropzone and call the API
+-   Create the API routes for the presigned url (GET) and database connection (POST)
+    `/app/api/presigned/route.ts`
+    `/app/api/upload/image/route.ts`
+-   Create the Basic UI with React dropzone and call the API 
+
     🎊 Test the application. Will work properly.
 
 ## Additional Improvements with Shadcn UI
 -   Initialize the the Schacn UI (`npx shadcn@latest init`)
 -   Added Button, Dialog, Progress, Scroll Area, and Sonner from Shadcn
 -   Created some new components and hooks from a GitHub code
+-   Modified the imported components and hooks
+-   Test the application. Will work properly
+
+
+## File upload with the Edgestore
+-   Install some Dependancies (`npm install @edgestore/server @edgestore/react zod`)
+-   Create a new project in Edgestore dashboad (https://dashboard.edgestore.dev/)
+-   Copy and paste the environment variables to .env
+-   Follow the official documentation to create the necessary files
+    `/app/api/edgestore/[...edgestore]/route.ts`,
+    `/utils/edgestore.ts`,
+    `/app/edgestore/layout.tsx`
+
+

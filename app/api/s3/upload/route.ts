@@ -48,7 +48,7 @@ export async function POST(
         // Store the file URL in the database
         const data = await sql`INSERT INTO s3 (name, img_url) VALUES (${file.name}, ${fileUrl})`;
 
-        return NextResponse.json({ url: fileUrl, message: "Failed to upload file" }, { status: 200 });
+        return NextResponse.json({ url: fileUrl, message: "Successfully uploaded the file" }, { status: 200 });
     } catch (error) {
         console.error("Error uploading file: ", error);
         return NextResponse.json({ error: "Failed to upload file" }, { status: 500 });

@@ -12,7 +12,7 @@ import { Progress } from "@/components/ui/progress";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useControllableState } from "@/hooks/use-controllable-state";
 
-interface FileUploaderProps extends React.HTMLAttributes<HTMLDivElement> {
+interface FileUploader1Props extends React.HTMLAttributes<HTMLDivElement> {
     value?: File[];
     onValueChange?: (files: File[]) => void;
     onUpload?: (files: File[]) => Promise<void>;
@@ -24,7 +24,7 @@ interface FileUploaderProps extends React.HTMLAttributes<HTMLDivElement> {
     disabled?: boolean;
 }
 
-export function FileUploader(props: FileUploaderProps) {
+export function FileUploader1(props: FileUploader1Props) {
     const {
         value: valueProp,
         onValueChange,
