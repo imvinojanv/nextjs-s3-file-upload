@@ -48,6 +48,7 @@
 -   Test the application. Will work properly
 
 
+
 ## File upload with the Edgestore
 -   Install some Dependancies (`npm install @edgestore/server @edgestore/react zod`)
 -   Create a new project in Edgestore dashboad (https://dashboard.edgestore.dev/)
@@ -71,6 +72,7 @@
     `/components/edgestore/multi-file-dropzone.tsx,
 
 
+
 ## File upload with Bunny CDN
 -   Create an account in bunny.net
 -   Click 'Storage' > Create new storage zone > Will redirect to file manager dashboard
@@ -85,3 +87,35 @@
     `/app/api/bunny-cdn/route.ts`
 -   Create a file uploader component
     `/app/bunny-cdn/page.tsx`
+
+REF: https://50bytesjournal.hashnode.dev/nextjs-and-bunny-cdn-complete-guide-to-image-uploading-with-server-actions
+
+
+
+## File upload with Next-S3-Upload
+-   Install Dependancies (`npm install next-s3-upload`)
+-   Create a new IAM user with new policies that mention in the next-s3-upload documentation
+-   Create access key and paste them for the next-s3-upload
+-   Create an API file for the next-s3-upload
+    `/app/api/s3-upload/route.ts`
+    `/app/api/next-s3-upload/route.ts`  :   Custom API routes
+-   Create the frontend to upload the files
+    `Basic single file upload`, `Custom file input`, `Multiple file upload`, and `presigned file upload`
+
+REF: https://next-s3-upload.codingvalue.com/setup
+
+
+
+## File upload with Cloudflare R2 Storage and Next-S3-Upload
+-   Install Dependancies (`npm install next-s3-upload`)
+-   Create an account on Cloudflare
+-   Click "R2 Object Storage" > Create a new bucket
+-   Click "Settings" of the bucket > Update CORS
+-   Copy the S3 API from the bucket details of the settings. (`https://<Account_ID>.r2.cloudflarestorage.com/<name-of-bucket>`)
+-   Go to Public access setting of the bucket and set a custom domain to access the files of the bucket.
+    If the domain doesn't exist in DNS, you need to add the domain by chnaging the nameservers on your domain providers (GoDaddy)
+    Coonect the domain in settings > Public access, then allow the public access
+-   Back to the R2 dashboad > Manage R2 API Tokens > Create API token
+-   Copy the `Access Key ID` and `Secret Access Key`
+-   Create an API endpoint with all keys for the Cloudflare
+    `/app/api/cloudflare-next-s3-upload/route.ts`
