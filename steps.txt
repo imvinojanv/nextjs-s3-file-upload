@@ -107,7 +107,7 @@ REF: https://next-s3-upload.codingvalue.com/setup
 
 
 ## File upload with Cloudflare R2 Storage and Next-S3-Upload
--   Install Dependancies (`npm install next-s3-upload`)
+-   Install AWS S3 client (`npm install @aws-sdk/client-s3 @aws-sdk/s3-request-presigner`)
 -   Create an account on Cloudflare
 -   Click "R2 Object Storage" > Create a new bucket
 -   Click "Settings" of the bucket > Update CORS
@@ -116,6 +116,8 @@ REF: https://next-s3-upload.codingvalue.com/setup
     If the domain doesn't exist in DNS, you need to add the domain by chnaging the nameservers on your domain providers (GoDaddy)
     Coonect the domain in settings > Public access, then allow the public access
 -   Back to the R2 dashboad > Manage R2 API Tokens > Create API token
--   Copy the `Access Key ID` and `Secret Access Key`
+-   Copy the `Access Key ID` and `Secret Access Key` > Pasted into the .env file
 -   Create an API endpoint with all keys for the Cloudflare
-    `/app/api/cloudflare-next-s3-upload/route.ts`
+    `/app/api/cloudflare-r2/route.ts`
+-   Created the file upload component to upload the file from front
+    `/app/cloudflare-r2/page.tsx`

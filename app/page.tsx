@@ -7,7 +7,7 @@ const routes = [
     { name: "Edgestore with S3", href: "/edgestore-s3" },
     { name: "Bunny CDN", href: "/bunny-cdn" },
     { name: "Next S3 Upload", href: "/next-s3-upload" },
-    { name: "Cloudflare with Next S3 Upload", href: "/cloudflare-next-s3-upload" },
+    { name: "Cloudflare R2", href: "/cloudflare-r2" },
 ]
 
 const Home = () => {
