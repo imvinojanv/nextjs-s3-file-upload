@@ -1,5 +1,10 @@
 ## Create new Next.js project
 -   Create new project with TypeScript, Tailwindcss, App router (`npx create-next-app@latest project-name`)
+-   Initialize the the Schacn UI (`npx shadcn@latest init`)
+
+## Create a database in Neon
+-   Create a new database
+-   Copy the database string and paste in into the .env file
 
 ## AWS S3 Bucket setups
 -   Create a new AWS S3 bucket (with all default settings)
@@ -11,10 +16,6 @@
 -   Go to the created user > Click 'Create access key' (select other option) > Leave the 'Description tag value' as empty > Create access key
     Copy the access key (NEXT_AWS_S3_ACCESS_KEY_ID),
     Copy the secret access key (NEXT_AWS_S3_SECRET_ACCESS_KEY),
-
-## Create a database in Neon
--   Create a new database
--   Copy the database string and paste in into the .env file
 
 ## .env Configuration
 ```
@@ -32,16 +33,16 @@
 -   Install Neon's serverless function (`npm install @neondatabase/serverless`)
 -   Install React dropzone (`npm install react-dropzone`)
 
+
+## File upload with the S3 bucket
 -   Create a new utils file for s3-client
 -   Create the API routes for the presigned url (GET) and database connection (POST)
     `/app/api/presigned/route.ts`
     `/app/api/upload/image/route.ts`
 -   Create the Basic UI with React dropzone and call the API 
+🎊 Test the application. Will work properly.
 
-    🎊 Test the application. Will work properly.
-
-## Additional Improvements with Shadcn UI
--   Initialize the the Schacn UI (`npx shadcn@latest init`)
+## Additional Improvements with Shadcn components
 -   Added Button, Dialog, Progress, Scroll Area, and Sonner from Shadcn
 -   Created some new components and hooks from a GitHub code
 -   Modified the imported components and hooks
