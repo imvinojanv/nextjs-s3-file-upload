@@ -8,7 +8,9 @@ export default function EdgestoreLayout({
   return (
     <html lang="en">
       <body>
-        <EdgeStoreProvider>{children}</EdgeStoreProvider>
+        <EdgeStoreProvider basePath='/api/edgestore-s3'>
+          {children}
+        </EdgeStoreProvider>
       </body>
     </html>
   );

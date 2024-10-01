@@ -73,6 +73,18 @@
 
 
 
+## File upload with Edgestore and S3 bucket (AWS provider)
+-   Create an API route with AWS provider
+    `/app/api/edgestore-s3/[...edgestore]/route.ts`
+-   Create an utils files to use the API route
+    `/utils/edgestore-s3.ts`
+-   Wrap the layout component with EdgeStoreProvider
+    `/app/edgestore-s3/layout.tsx`
+-   Create a image upload component to use the edgestore and S3 bucket
+    `/app/edgestore-s3/page.tsx`
+
+
+
 ## File upload with Bunny CDN
 -   Create an account in bunny.net
 -   Click 'Storage' > Create new storage zone > Will redirect to file manager dashboard
@@ -106,7 +118,7 @@ REF: https://next-s3-upload.codingvalue.com/setup
 
 
 
-## File upload with Cloudflare R2 Storage and Next-S3-Upload
+## File upload with Cloudflare R2 Storage using S3 client
 -   Install AWS S3 client (`npm install @aws-sdk/client-s3 @aws-sdk/s3-request-presigner`)
 -   Create an account on Cloudflare
 -   Click "R2 Object Storage" > Create a new bucket
@@ -118,6 +130,7 @@ REF: https://next-s3-upload.codingvalue.com/setup
 -   Back to the R2 dashboad > Manage R2 API Tokens > Create API token
 -   Copy the `Access Key ID` and `Secret Access Key` > Pasted into the .env file
 -   Create an API endpoint with all keys for the Cloudflare
-    `/app/api/cloudflare-r2/route.ts`
+    `/app/api/cloudflare-r2/route.ts`,
+    `/app/api/cloudflare-r2/presigned/route.ts`
 -   Created the file upload component to upload the file from front
     `/app/cloudflare-r2/page.tsx`
