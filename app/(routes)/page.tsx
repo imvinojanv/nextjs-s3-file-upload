@@ -8,6 +8,7 @@ const routes = [
     { name: "Bunny CDN", href: "/bunny-cdn" },
     { name: "Next S3 Upload", href: "/next-s3-upload" },
     { name: "Cloudflare R2", href: "/cloudflare-r2" },
+    { name: "Firebase Storage", href: "/firebase-storage" },
 ]
 
 const Home = () => {

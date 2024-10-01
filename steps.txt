@@ -57,19 +57,19 @@
 -   Follow the official documentation to create the necessary files
     `/app/api/edgestore/[...edgestore]/route.ts`,
     `/utils/edgestore.ts`,
-    `/app/edgestore/layout.tsx`,
-    `/app/edgestore/page.tsx`
+    `/app/(routes)/edgestore/layout.tsx`,
+    `/app/(routes)/edgestore/page.tsx`
 
 -   For Single Image upload
-    `/app/edgestore/_components/single-image-uploader.tsx`,
+    `/app/(routes)/edgestore/_components/single-image-uploader.tsx`,
     `/components/edgestore/single-image-dropzone.tsx,
 
 -   For Multi Image upload
-    `/app/edgestore/_components/multi-image-uploader.tsx`,
+    `/app/(routes)/edgestore/_components/multi-image-uploader.tsx`,
     `/components/edgestore/multi-image-dropzone.tsx,
 
 -   For Multi File upload
-    `/app/edgestore/_components/multi-file-uploader.tsx`,
+    `/app/(routes)/edgestore/_components/multi-file-uploader.tsx`,
     `/components/edgestore/multi-file-dropzone.tsx,
 
 
@@ -80,9 +80,9 @@
 -   Create an utils files to use the API route
     `/utils/edgestore-s3.ts`
 -   Wrap the layout component with EdgeStoreProvider
-    `/app/edgestore-s3/layout.tsx`
+    `/app/(routes)/edgestore-s3/layout.tsx`
 -   Create a image upload component to use the edgestore and S3 bucket
-    `/app/edgestore-s3/page.tsx`
+    `/app/(routes)/edgestore-s3/page.tsx`
 
 
 
@@ -99,7 +99,7 @@
 -   Create an API route to call the Bunny API
     `/app/api/bunny-cdn/route.ts`
 -   Create a file uploader component
-    `/app/bunny-cdn/page.tsx`
+    `/app/(routes)/bunny-cdn/page.tsx`
 
 REF: https://50bytesjournal.hashnode.dev/nextjs-and-bunny-cdn-complete-guide-to-image-uploading-with-server-actions
 
@@ -134,4 +134,25 @@ REF: https://next-s3-upload.codingvalue.com/setup
     `/app/api/cloudflare-r2/route.ts`,
     `/app/api/cloudflare-r2/presigned/route.ts`
 -   Created the file upload component to upload the file from front
-    `/app/cloudflare-r2/page.tsx`
+    `/app/(routes)/cloudflare-r2/page.tsx`
+
+
+
+## File upload with Firebase Storage
+-   Install Firebase SDK (`npm install firebase`)
+-   Go to the Firebase console (`https://console.firebase.google.com/u/0/`)
+-   Create a new project
+-   Select the "Storage" in the sidebar
+-   Click on the 'Web app' icon (</>) to register our app.
+-   Firebase will generate the configuration details like apiKey, authDomain, projectId, etc.
+    Store the configuration on .env files
+-   Create a utils file for firebase
+    `/utils/firebase.ts`
+-   Create an API Route for Handling File Uploads
+    `/app/api/firebase-storage/route.ts`
+-   Create the file upload component to upload the file from frontend
+    `/app/(routes)/firebase-storage/page.tsx`
+-   Ensure Security Rules for Firebase Storage
+    In the Firebase Console, go to Storage > Rules and define appropriate access control rules.
+    `allow read, write: if true;`
+-   
