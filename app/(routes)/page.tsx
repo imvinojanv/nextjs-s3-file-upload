@@ -9,6 +9,7 @@ const routes = [
     { name: "Next S3 Upload", href: "/next-s3-upload" },
     { name: "Cloudflare R2", href: "/cloudflare-r2" },
     { name: "Firebase Storage", href: "/firebase-storage" },
+    { name: "Backblaze B2 Cloud Storage", href: "/backblaze-b2" },
 ]
 
 const Home = () => {

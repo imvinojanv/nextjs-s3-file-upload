@@ -155,4 +155,20 @@ REF: https://next-s3-upload.codingvalue.com/setup
 -   Ensure Security Rules for Firebase Storage
     In the Firebase Console, go to Storage > Rules and define appropriate access control rules.
     `allow read, write: if true;`
--   
+🎊 Test the application. Will work properly.
+
+
+
+## File Upload with Backblaze B2 Cloud Storage
+-   Install Backblaze B2 SDK (`npm install backblaze-b2`) & Types (`npm i --save-dev @types/backblaze-b2`)
+-   Log in and Go to your Backblaze B2 account.
+-   Create a new bucket in the "Buckets" section.
+-   Generate an Application Key with the necessary permissions to upload files.
+-   Copy the keys and paste them into .env file
+-   Create a utils file for Backblaze
+    `/utils/backblaze.ts`
+-   Create an API route for Backblaze to upload files
+    `/app/api/backblaze-b2/route.ts`
+-   Create the file upload component to upload the file from frontend
+    `/app/(routes)/backblaze-b2/page.tsx`
+🎊 Test the application. Will work properly.
