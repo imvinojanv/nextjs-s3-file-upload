@@ -161,7 +161,7 @@ REF: https://next-s3-upload.codingvalue.com/setup
 
 ## File Upload with Backblaze B2 Cloud Storage
 -   Install Backblaze B2 SDK (`npm install backblaze-b2`) & Types (`npm i --save-dev @types/backblaze-b2`)
--   Log in and Go to your Backblaze B2 account.
+-   Create/Login and Go to your Backblaze B2 account.
 -   Create a new bucket in the "Buckets" section.
 -   Generate an Application Key with the necessary permissions to upload files.
 -   Copy the keys and paste them into .env file
@@ -172,3 +172,22 @@ REF: https://next-s3-upload.codingvalue.com/setup
 -   Create the file upload component to upload the file from frontend
     `/app/(routes)/backblaze-b2/page.tsx`
 🎊 Test the application. Will work properly.
+
+
+
+## File Upload with Storj (Decentralized Cloud Storage) Using Uplink
+-   Install Uplink for Node.js (`npm install uplink-nodejs`)
+-   Create/Login the account and Start with free-trail, then Go to the dashboard
+-   Navigate to 'Browse' on the left side menu, Create new bucket
+-   Navigate to 'Access Keys' on the left side menu, Click the New Access Key button.
+    Create the access key with "S3 Credentials" and set permisstion "All"
+-   Copy the keys and paste them into .env file
+-   Create a utils file for Storj S3
+    `/utils/storj-s3.ts`
+-   Create an API route for Storj S3 to upload files
+    `/app/api/storj-s3/route.ts`
+-   Create the file upload component to upload the file from frontend
+    `/app/(routes)/storj-s3/page.tsx`
+This file uploading mothod is only allow to upload the file, We can not automatically generate the `accessGrant`,
+Bcz it's a Decentralized storage, so its only allowed to generate the accessGrant token through Command (CMD) after uploaded the file
+SAMPLE URL: `https://link.storjshare.io/raw/<access-grant-id>/<bucketName>/<fileName>`
