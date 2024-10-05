@@ -191,3 +191,13 @@ REF: https://next-s3-upload.codingvalue.com/setup
 This file uploading mothod is only allow to upload the file, We can not automatically generate the `accessGrant`,
 Bcz it's a Decentralized storage, so its only allowed to generate the accessGrant token through Command (CMD) after uploaded the file
 SAMPLE URL: `https://link.storjshare.io/raw/<access-grant-id>/<bucketName>/<fileName>`
+
+
+
+## File Upload to Local Directory
+-   Create your local file directory (`/public/uploads/...`)
+-   Create an API route for local directory to upload files
+    `/app/api/local-directory/route.ts`
+-   Create the file upload component to upload the file from frontend
+    `/app/(routes)/local-directory/page.tsx`
+🎊 Test the application. Will work properly.

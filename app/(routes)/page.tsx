@@ -2,6 +2,7 @@ import { ArrowRightIcon } from "@radix-ui/react-icons"
 import Link from "next/link"
 
 const routes = [
+    { name: "Local File Directory (Core)", href: "/local-directory" },
     { name: "AWS S3 Bucket", href: "/s3" },
     { name: "Edgestore", href: "/edgestore" },
     { name: "Edgestore with S3", href: "/edgestore-s3" },
