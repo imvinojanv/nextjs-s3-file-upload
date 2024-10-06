@@ -11,6 +11,7 @@ This project demonstrates how to build a file upload application using multiple 
   - [AWS S3 Integration](#aws-s3-integration)
   - [Edgestore Integration](#edgestore-integration)
   - [Edgestore with AWS S3 Integration](#edgestore-with-aws-s3-integration)
+  - [Bunny CDN Integration](#bunny-cdn-integration)
   - [Example `.env` File](#example-env-file)
 
 ## Project Setup
@@ -89,6 +90,7 @@ This project demonstrates how to build a file upload application using multiple 
     - `app/api/presigned/route.ts`
     - `app/api/s3/upload/image/route.ts`
 10. **Create a file upload UI using `react-dropzone`.**
+    - `/app/(routes)/s3/page.tsx`
 
 ## Edgestore Integration
 
@@ -127,6 +129,25 @@ This project demonstrates how to build a file upload application using multiple 
 3. **Create a layout component wrapped in `EdgeStoreProvider`.** (with setting the `basePath`)
 4. **Create a page component** for uploading images using Edgestore with AWS S3:
     - `app/(routes)/edgestore-s3/page.tsx`
+
+## Bunny CDN Integration
+
+1. **Create a Bunny CDN account.** ([Bunny.net](https://bunny.net/))
+2. **Create a new storage zone.** (Click 'Storage' > Create new storage zone > Will redirect to file manager dashboard)
+3. **Get your password** from 'FTP & API Access'
+4. **Update the `.env` file** with Bunny CDN variables:
+    ```bash
+    NEXT_PUBLIC_BUNNY_CDN_ACCESS_KEY=your_password
+    NEXT_PUBLIC_BUNNY_STORAGE_ZONE_NAME=your_storage_zone_name
+    NEXT_PUBLIC_BUNNY_STORAGE_BASE_URL=https://your_storage_zone_name.b-cdn.net
+    ```
+5. **Connect pull zone** to activate the public URL.
+6. **Create an API route** for Bunny CDN:
+    - `app/api/bunny-cdn/route.ts`
+7. **Create a page component** for uploading images using Edgestore with Bunny:
+    - `app/(routes)/bunny-cdn/page.tsx`
+
+-   [Reference Article 🔗](https://50bytesjournal.hashnode.dev/nextjs-and-bunny-cdn-complete-guide-to-image-uploading-with-server-actions)
 
 ## Example `.env` File
 
