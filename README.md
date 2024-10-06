@@ -17,6 +17,7 @@ This project demonstrates how to build a file upload application using multiple 
   - [Backblaze B2 Integration](#backblaze-b2-integration)
   - [Next-S3-Upload Integration](#next-s3-upload-integration)
   - [Storj storage Integration (with S3 client)](#storj-storage-integration-with-s3-client)
+  - [File upload to Local directory](#file-upload-to-local-directory)
   - [Sample `.env` File](#sample-env-file)
 
 ## Project Setup
@@ -263,8 +264,6 @@ This project demonstrates how to build a file upload application using multiple 
 
 -   NOTE: Please see the documentation for more information!
 
-🎉 You can now test your application and see that file uploads work seamlessly with multiple storage providers.
-
 ## Storj storage Integration (with S3 client)
 
 1.  Create/Login your account with FREE-TRIAL
@@ -291,14 +290,27 @@ This project demonstrates how to build a file upload application using multiple 
     Because it's a Decentralized storage, so its only allowed to generate the accessGrant token through Command (CMD) after uploaded the file
 -   SAMPLE_IMAGE_URL: `https://link.storjshare.io/raw/<accessGrantId>/<bucketName>/<fileName>`
 
+## File upload to Local directory
+
+1. **Create your local file directory** to store your files
+    - `/public/uploads`
+2. **Create an API route** for local directory to upload files
+    - `/app/api/local-directory/route.ts`
+3. **Create a page component** for uploading files
+    - `/app/(routes)/local-directory/page.tsx`
+
+
+
+🎉 You can now test your application and see that file uploads work seamlessly with multiple storage providers.
+
 ## Sample `.env` File
 
 ```bash
 # S3 Configuration
-NEXT_AWS_S3_REGION=your_region
-NEXT_AWS_S3_ACCESS_KEY_ID=your_access_key_id
-NEXT_AWS_S3_SECRET_ACCESS_KEY=your_secret_access_key
-NEXT_AWS_S3_BUCKET_NAME=your_bucket_name
+NEXT_AWS_S3_REGION=
+NEXT_AWS_S3_ACCESS_KEY_ID=
+NEXT_AWS_S3_SECRET_ACCESS_KEY=
+NEXT_AWS_S3_BUCKET_NAME=
 
 # Next-S3-Upload Configuration
 S3_UPLOAD_KEY=
@@ -319,8 +331,8 @@ EDGE_STORE_SECRET_KEY=
 EDGE_STORE_JWT_SECRET=
 
 # Bunny CDN Configuration
-NEXT_PUBLIC_BUNNY_CDN_ACCESS_KEY=your_password
-NEXT_PUBLIC_BUNNY_STORAGE_ZONE_NAME=storage_zone_name
+NEXT_PUBLIC_BUNNY_CDN_ACCESS_KEY=
+NEXT_PUBLIC_BUNNY_STORAGE_ZONE_NAME=
 NEXT_PUBLIC_BUNNY_STORAGE_BASE_URL=
 
 # Firebase Configuration
@@ -336,7 +348,6 @@ NEXT_PUBLIC_B2_APPLICATION_KEY_ID=
 NEXT_PUBLIC_B2_APPLICATION_KEY=
 NEXT_PUBLIC_B2_BUCKET_NAME=
 NEXT_PUBLIC_B2_BUCKET_ID=
-# NEXT_PUBLIC_B2_ENDPOINT=
 
 # Storj S3 Configuration
 NEXT_PUBLIC_STORJ_S3_ACCESS_KEY=
