@@ -14,6 +14,7 @@ This project demonstrates how to build a file upload application using multiple 
   - [Bunny CDN Integration](#bunny-cdn-integration)
   - [Cloudflare R2 Integration (with S3 client)](#cloudflare-r2-integration-with-s3-client)
   - [Firebase Storage Integration](#firebase-storage-integration)
+  - [Backblaze B2 Integration](#backblaze-b2-integration)
   - [Example `.env` File](#example-env-file)
 
 ## Project Setup
@@ -212,6 +213,29 @@ This project demonstrates how to build a file upload application using multiple 
     - `app/(routes)/firebase-storage/page.tsx`
 7. **Ensure security rules** in the Firebase Console to control access.
     - Go to Storage > Rules and define appropriate access control rules
+
+## Backblaze B2 Integration
+
+1. **Install Backblaze B2 SDK:**
+
+    ```bash
+    npm install backblaze-b2 @types/backblaze-b2
+    ```
+
+2. **Create a Backblaze account and bucket**
+3. **Generate API keys** and store them in `.env`.
+    ```bash
+    NEXT_PUBLIC_B2_APPLICATION_KEY_ID=your_app_key_id
+    NEXT_PUBLIC_B2_APPLICATION_KEY=your_app_key
+    NEXT_PUBLIC_B2_BUCKET_NAME=your_bucket_name
+    NEXT_PUBLIC_B2_BUCKET_ID=your_bucket_id
+    ```
+4. **Create utils for Backblaze integration:**
+    - `utils/backblaze.ts`
+5. **Create an API route** for Backblaze B2 Storage:
+    - `app/api/backblaze-b2/route.ts`
+6. **Create a page component** for uploading images to Backblaze B2 storage:
+    - `app/(routes)/backblaze-b2/page.tsx`
 
 ## Example `.env` File
 
