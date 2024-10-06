@@ -15,6 +15,7 @@ This project demonstrates how to build a file upload application using multiple 
   - [Cloudflare R2 Integration (with S3 client)](#cloudflare-r2-integration-with-s3-client)
   - [Firebase Storage Integration](#firebase-storage-integration)
   - [Backblaze B2 Integration](#backblaze-b2-integration)
+  - [Next-S3-Upload Integration](#next-s3-upload-integration)
   - [Example `.env` File](#example-env-file)
 
 ## Project Setup
@@ -236,6 +237,32 @@ This project demonstrates how to build a file upload application using multiple 
     - `app/api/backblaze-b2/route.ts`
 6. **Create a page component** for uploading images to Backblaze B2 storage:
     - `app/(routes)/backblaze-b2/page.tsx`
+
+## Next-S3-Upload Integration
+
+1. **Install Next-S3-Upload package:**
+    ```bash
+    npm install next-s3-upload
+    ```
+2. **Create IAM user** with the required policies (refer to the [Next-S3-Upload Documentation](https://next-s3-upload.codingvalue.com/setup)).
+3. **Create access keys** and store them in `.env`.
+    ```bash
+    S3_UPLOAD_KEY=your_s3_key
+    S3_UPLOAD_SECRET=your_s3_secret_key
+    S3_UPLOAD_REGION=your_s3_region
+    S3_UPLOAD_BUCKET=your_bucket_name
+    ```
+4. **Create API and frontend routes:**
+   This library will automatically consider the default API route is: `/api/s3-upload`. - `app/api/s3-upload/route.ts` - `app/api/next-s3-upload/route.ts` (for Custom API routes)
+5. **Create file upload components** for :
+    - Single file upload
+    - Custom file input field
+    - Multiple file upload
+    - presigned file upload
+-   NOTE: Please see the documentation for more information!
+
+
+🎉 You can now test your application and see that file uploads work seamlessly with multiple storage providers.
 
 ## Example `.env` File
 
