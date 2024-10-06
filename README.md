@@ -12,6 +12,7 @@ This project demonstrates how to build a file upload application using multiple 
   - [Edgestore Integration](#edgestore-integration)
   - [Edgestore with AWS S3 Integration](#edgestore-with-aws-s3-integration)
   - [Bunny CDN Integration](#bunny-cdn-integration)
+  - [Cloudflare R2 Integration (with S3 client)](#cloudflare-r2-integration-with-s3-client)
   - [Example `.env` File](#example-env-file)
 
 ## Project Setup
@@ -148,6 +149,43 @@ This project demonstrates how to build a file upload application using multiple 
     - `app/(routes)/bunny-cdn/page.tsx`
 
 -   [Reference Article 🔗](https://50bytesjournal.hashnode.dev/nextjs-and-bunny-cdn-complete-guide-to-image-uploading-with-server-actions)
+
+## Cloudflare R2 Integration (with S3 client)
+
+1. **Install AWS SDK libraries** (If you don't installed)
+    ```bash
+     npm install @aws-sdk/client-s3 @aws-sdk/s3-request-presigner
+    ```
+2. **Create a Cloudflare R2 account.** ([Cloudflare R2](https://www.cloudflare.com/developer-platform/r2/))
+3. **Create a new R2 bucket** and configure CORS settings.
+    ```json
+    [
+        {
+            "AllowedHeaders": ["*"],
+            "AllowedMethods": ["GET", "PUT", "POST"],
+            "AllowedOrigins": ["*"],
+            "ExposeHeaders": ["ETag"]
+        }
+    ]
+    ```
+4. **Connect the custom domain** activate the public access
+    - (If the domain does not exist from Cloudflare DNS, you need to add the domain through the Cloudflare DNS)
+    - Then allow the public access of the bucket
+5. **Generate API tokens** by clicking the 'Manage R2 API Tokens' in R2 and store them in `.env`:
+    ```bash
+    NEXT_PUBLIC_CLOUDFLARE_R2_ACCESS_KEY=your_access_key
+    NEXT_PUBLIC_CLOUDFLARE_R2_SECRET_ACCESS_KEY=your_secret_access_key
+    CLOUDFLARE_R2_ACCESS_KEY_ID=your_access_key
+    CLOUDFLARE_R2_SECRET_ACCESS_KEY=your_secret_access_key
+    CLOUDFLARE_R2_REGION=auto
+    CLOUDFLARE_R2_BUCKET_NAME=your_bucket_name
+    CLOUDFLARE_R2_ENDPOINT=https://your_account_id.r2.cloudflarestorage.com
+    ```
+6. **Create API routes** for Cloudflare R2:
+    - `app/api/cloudflare-r2/route.ts`
+    - `app/api/cloudflare-r2/presigned/route.ts`
+7. **Create a page component** for uploading images using Edgestore with Bunny:
+    - `app/(routes)/cloudflare-r2/page.tsx`
 
 ## Example `.env` File
 
