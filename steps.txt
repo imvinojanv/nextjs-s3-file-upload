@@ -38,7 +38,7 @@
 -   Create a new utils file for s3-client
 -   Create the API routes for the presigned url (GET) and database connection (POST)
     `/app/api/presigned/route.ts`
-    `/app/api/upload/image/route.ts`
+    `/app/api/s3/upload/image/route.ts`
 -   Create the Basic UI with React dropzone and call the API 
 🎊 Test the application. Will work properly.
 
