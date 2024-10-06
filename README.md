@@ -13,6 +13,7 @@ This project demonstrates how to build a file upload application using multiple 
   - [Edgestore with AWS S3 Integration](#edgestore-with-aws-s3-integration)
   - [Bunny CDN Integration](#bunny-cdn-integration)
   - [Cloudflare R2 Integration (with S3 client)](#cloudflare-r2-integration-with-s3-client)
+  - [Firebase Storage Integration](#firebase-storage-integration)
   - [Example `.env` File](#example-env-file)
 
 ## Project Setup
@@ -186,6 +187,31 @@ This project demonstrates how to build a file upload application using multiple 
     - `app/api/cloudflare-r2/presigned/route.ts`
 7. **Create a page component** for uploading images using Edgestore with Bunny:
     - `app/(routes)/cloudflare-r2/page.tsx`
+
+## Firebase Storage Integration
+
+1. **Install Firebase SDK:**
+    ```bash
+    npm install firebase
+    ```
+2. **Create a new Firebase project.** ([Firebase](https://console.firebase.google.com/))
+3. **Register your web app** and configure the `.env` with Firebase credentials.
+    ```bash
+    NEXT_PUBLIC_FIREBASE_API_KEY=your_web_app_key
+    NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_firebase_project_id.firebaseapp.com
+    NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_firebase_project_id
+    NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_firebase_project_id.appspot.com
+    NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_messaging_id
+    NEXT_PUBLIC_FIREBASE_APP_ID=your_firebase_app_id
+    ```
+4. **Create utils for Firebase integration:**
+    - `utils/firebase.ts`
+5. **Create an API route** for Firebase Storage:
+    - `app/api/firebase-storage/route.ts`
+6. **Create a page component** for uploading images to Firebase storage:
+    - `app/(routes)/firebase-storage/page.tsx`
+7. **Ensure security rules** in the Firebase Console to control access.
+    - Go to Storage > Rules and define appropriate access control rules
 
 ## Example `.env` File
 
