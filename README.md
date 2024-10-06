@@ -4,17 +4,14 @@ This project demonstrates how to build a file upload application using multiple 
 
 ## Table of Contents
 
--   [Project Setup](#project-setup)
--   [Database Setup (Neon)](#database-setup-neon)
--   [AWS S3 Integration](#aws-s3-integration)
--   [Edgestore Integration](#edgestore-integration)
--   [Edgestore with AWS S3 Integration](#edgestore-with-aws-s3-integration)
--   [Bunny CDN Integration](#bunny-cdn-integration)
--   [Next-S3-Upload Integration](#next-s3-upload-integration)
--   [Cloudflare R2 Integration](#cloudflare-r2-integration)
--   [Firebase Storage Integration](#firebase-storage-integration)
--   [Backblaze B2 Integration](#backblaze-b2-integration)
--   [Local Storage Setup](#local-storage-setup)
+- [Next.js Multi Storage Provider File Upload Application](#nextjs-multi-storage-provider-file-upload-application)
+  - [Table of Contents](#table-of-contents)
+  - [Project Setup](#project-setup)
+  - [Database Setup (Neon)](#database-setup-neon)
+  - [AWS S3 Integration](#aws-s3-integration)
+  - [Edgestore Integration](#edgestore-integration)
+  - [Edgestore with AWS S3 Integration](#edgestore-with-aws-s3-integration)
+  - [Example `.env` File](#example-env-file)
 
 ## Project Setup
 
@@ -93,6 +90,44 @@ This project demonstrates how to build a file upload application using multiple 
     - `app/api/s3/upload/image/route.ts`
 10. **Create a file upload UI using `react-dropzone`.**
 
+## Edgestore Integration
+
+1. **Install dependencies:**
+    ```bash
+    npm install @edgestore/server @edgestore/react zod
+    ```
+2. **Create a new project in Edgestore** and copy the environment variables into `.env`.
+   (Go to the [Edgestore](https://dashboard.edgestore.dev/))
+    ```bash
+    EDGE_STORE_ACCESS_KEY=your_access_key
+    EDGE_STORE_SECRET_KEY=your_secret_access_key
+    EDGE_STORE_JWT_SECRET=your_jwt_secret
+    ```
+3. **Follow the official Edgestore documentation** to create the following:
+    - `app/api/edgestore/[...edgestore]/route.ts`
+    - `utils/edgestore.ts`
+4. **Create a layout component wrapped in `EdgeStoreProvider`.**
+    - `/app/(routes)/edgestore/layout.tsx`
+5. **Create UI components** for Single Image upload
+    - `/app/(routes)/edgestore/_components/single-image-uploader.tsx`
+    - `/components/edgestore/single-image-dropzone.tsx`
+6. **Create UI components** for Multiple Image Upload
+    - `/app/(routes)/edgestore/_components/multi-image-uploader.tsx`
+    - `/components/edgestore/multi-image-dropzone.tsx`
+7. **Create UI components** for Multiple File upload
+    - `/app/(routes)/edgestore/_components/multi-file-uploader.tsx`
+    - `/components/edgestore/multi-file-dropzone.tsx`
+
+## Edgestore with AWS S3 Integration
+
+1. **Create an API route** with AWS provider:
+    - `app/api/edgestore-s3/[...edgestore]/route.ts`
+2. **Create utils for Edgestore-S3 integration:**
+    - `utils/edgestore-s3.ts`
+3. **Create a layout component wrapped in `EdgeStoreProvider`.** (with setting the `basePath`)
+4. **Create a page component** for uploading images using Edgestore with AWS S3:
+    - `app/(routes)/edgestore-s3/page.tsx`
+
 ## Example `.env` File
 
 ```bash
@@ -126,7 +161,7 @@ NEXT_PUBLIC_BUNNY_STORAGE_ZONE_NAME=storage_zone_name
 NEXT_PUBLIC_BUNNY_STORAGE_BASE_URL=
 
 # Firebase Configuration
-NEXT_PUBLIC_FIREBASE_API_KEY
+NEXT_PUBLIC_FIREBASE_API_KEY=
 NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
 NEXT_PUBLIC_FIREBASE_PROJECT_ID=
 NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
