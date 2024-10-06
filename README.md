@@ -16,7 +16,8 @@ This project demonstrates how to build a file upload application using multiple 
   - [Firebase Storage Integration](#firebase-storage-integration)
   - [Backblaze B2 Integration](#backblaze-b2-integration)
   - [Next-S3-Upload Integration](#next-s3-upload-integration)
-  - [Example `.env` File](#example-env-file)
+  - [Storj storage Integration (with S3 client)](#storj-storage-integration-with-s3-client)
+  - [Sample `.env` File](#sample-env-file)
 
 ## Project Setup
 
@@ -259,12 +260,38 @@ This project demonstrates how to build a file upload application using multiple 
     - Custom file input field
     - Multiple file upload
     - presigned file upload
--   NOTE: Please see the documentation for more information!
 
+-   NOTE: Please see the documentation for more information!
 
 🎉 You can now test your application and see that file uploads work seamlessly with multiple storage providers.
 
-## Example `.env` File
+## Storj storage Integration (with S3 client)
+
+1.  Create/Login your account with FREE-TRIAL
+2.  **Create new bucket** by navigating to 'Browse' on the left side menu.
+3.  **Create New Access Key** by navigating to 'Access Keys' on the left side menu,
+    -   _`S3 Credentials`_ and set
+    -   Permission: `All`
+4.  **Copy the environment variables** into `.env`.
+    ```bash
+    NEXT_PUBLIC_STORJ_S3_ACCESS_KEY=your_access_key
+    NEXT_PUBLIC_STORJ_S3_SECRET_KEY=your_secret_key
+    NEXT_PUBLIC_STORJ_S3_REGION=your_region
+    NEXT_PUBLIC_STORJ_S3_BUCKET_NAME=your_bucket_name
+    NEXT_PUBLIC_STORJ_S3_ENDPOINT=https://gateway.storjshare.io
+    ```
+5.  **Create utils for Storj integration:**
+    -   `utils/storj-s3.ts`
+6.  **Create an API route** for Storj Storage:
+    -   `app/api/storj-s3/route.ts`
+7.  **Create a page component** for uploading images to Storj cloud storage:
+    -   `app/(routes)/storj-s3/page.tsx`
+
+-   This file uploading mothod is only allow to upload the file, We can not automatically generate the `accessGrant`,
+    Because it's a Decentralized storage, so its only allowed to generate the accessGrant token through Command (CMD) after uploaded the file
+-   SAMPLE_IMAGE_URL: `https://link.storjshare.io/raw/<accessGrantId>/<bucketName>/<fileName>`
+
+## Sample `.env` File
 
 ```bash
 # S3 Configuration

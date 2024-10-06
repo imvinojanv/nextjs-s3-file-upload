@@ -176,7 +176,6 @@ REF: https://next-s3-upload.codingvalue.com/setup
 
 
 ## File Upload with Storj (Decentralized Cloud Storage) Using Uplink
--   Install Uplink for Node.js (`npm install uplink-nodejs`)
 -   Create/Login the account and Start with free-trail, then Go to the dashboard
 -   Navigate to 'Browse' on the left side menu, Create new bucket
 -   Navigate to 'Access Keys' on the left side menu, Click the New Access Key button.
