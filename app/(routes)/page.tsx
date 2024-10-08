@@ -12,6 +12,7 @@ const routes = [
     { name: "Firebase Storage", href: "/firebase-storage" },
     { name: "Backblaze B2 Cloud Storage", href: "/backblaze-b2" },
     { name: "Storj (Decentralized Cloud Storage) with S3", href: "/storj-s3" },
+    { name: "Cloudinary Storage", href: "/cloudinary" },
 ]
 
 const Home = () => {

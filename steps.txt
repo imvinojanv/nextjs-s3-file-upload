@@ -200,3 +200,18 @@ SAMPLE URL: `https://link.storjshare.io/raw/<access-grant-id>/<bucketName>/<file
 -   Create the file upload component to upload the file from frontend
     `/app/(routes)/local-directory/page.tsx`
 🎊 Test the application. Will work properly.
+
+
+
+## File Upload with Cloudinary
+-   Install the cloudinary (`npm install cloudinary`)
+-   Create an account for Cloudinary and get the API keys then paste them into .env file
+    `cloud_name`, `api_key`, and `api_secret`
+-   Create a utils file for Cloudinary
+    `/utils/cloudinary.ts`
+-   Create API routes for Cloudinary to upload files (all possible methods are available)
+    1: `/app/api/cloudinary/base64/route.ts`
+    2: `/app/api/cloudinary/upload-stream/route.ts`
+-   Create the file upload component to upload the file from frontend
+    `/app/(routes)/cloudinary/page.tsx`
+🎊 Test the application. Will work properly.

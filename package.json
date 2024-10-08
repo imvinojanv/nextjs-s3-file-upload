@@ -24,6 +24,7 @@
     "axios": "^1.7.7",
     "backblaze-b2": "^1.7.0",
     "class-variance-authority": "^0.7.0",
+    "cloudinary": "^2.5.0",
     "clsx": "^2.1.1",
     "firebase": "^10.14.0",
     "lucide-react": "^0.446.0",
