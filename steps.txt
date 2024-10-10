@@ -215,3 +215,22 @@ SAMPLE URL: `https://link.storjshare.io/raw/<access-grant-id>/<bucketName>/<file
 -   Create the file upload component to upload the file from frontend
     `/app/(routes)/cloudinary/page.tsx`
 🎊 Test the application. Will work properly.
+
+
+
+## File Upload with ImageKit.io
+-   Install the ImageKit SDK (`npm install imagekitio-next`) OR (`npm install imagekit`)
+-   Create an account on ImageKit and get the API keys then paste them into .env file
+-   Create a utils file for ImageKit
+    `/utils/imagekit.ts`
+-   Create API routes for ImageKit to upload files
+    `/app/api/imagekit/route.ts`
+-   Create the file upload component to upload the file from frontend
+    `/app/(routes)/imagekit/page.tsx`
+    `/app/(routes)/imagekit/next/page.tsx`      (for imagekitio-next) (reffered the imageKit documentation for next.js)
+🎊 Test the application. Will work properly.
+
+-   Connect the S3 bucket to the ImageKit
+    Connect the S3 with all creadentials to the ImageKit
+    Create a new URL endpoint with connected S3 server
+    (Only for accessing files to be displayed, not for uploading)

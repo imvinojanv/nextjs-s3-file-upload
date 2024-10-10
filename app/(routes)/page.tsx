@@ -13,6 +13,7 @@ const routes = [
     { name: "Backblaze B2 Cloud Storage", href: "/backblaze-b2" },
     { name: "Storj (Decentralized Cloud Storage) with S3", href: "/storj-s3" },
     { name: "Cloudinary Storage", href: "/cloudinary" },
+    { name: "ImageKit.io", href: "/imagekit" },
 ]
 
 const Home = () => {
