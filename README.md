@@ -4,21 +4,21 @@ This project demonstrates how to build a file upload application using multiple 
 
 ## Table of Contents
 
-- [Next.js Multi Storage Provider File Upload Application](#nextjs-multi-storage-provider-file-upload-application)
-  - [Table of Contents](#table-of-contents)
-  - [Project Setup](#project-setup)
-  - [Database Setup (Neon)](#database-setup-neon)
-  - [AWS S3 Integration](#aws-s3-integration)
-  - [Edgestore Integration](#edgestore-integration)
-  - [Edgestore with AWS S3 Integration](#edgestore-with-aws-s3-integration)
-  - [Bunny CDN Integration](#bunny-cdn-integration)
-  - [Cloudflare R2 Integration (with S3 client)](#cloudflare-r2-integration-with-s3-client)
-  - [Firebase Storage Integration](#firebase-storage-integration)
-  - [Backblaze B2 Integration](#backblaze-b2-integration)
-  - [Next-S3-Upload Integration](#next-s3-upload-integration)
-  - [Storj storage Integration (with S3 client)](#storj-storage-integration-with-s3-client)
-  - [File upload to Local directory](#file-upload-to-local-directory)
-  - [Sample `.env` File](#sample-env-file)
+-   [Next.js Multi Storage Provider File Upload Application](#nextjs-multi-storage-provider-file-upload-application)
+    -   [Table of Contents](#table-of-contents)
+    -   [Project Setup](#project-setup)
+    -   [Database Setup (Neon)](#database-setup-neon)
+    -   [AWS S3 Integration](#aws-s3-integration)
+    -   [Edgestore Integration](#edgestore-integration)
+    -   [Edgestore with AWS S3 Integration](#edgestore-with-aws-s3-integration)
+    -   [Bunny CDN Integration](#bunny-cdn-integration)
+    -   [Cloudflare R2 Integration (with S3 client)](#cloudflare-r2-integration-with-s3-client)
+    -   [Firebase Storage Integration](#firebase-storage-integration)
+    -   [Backblaze B2 Integration](#backblaze-b2-integration)
+    -   [Next-S3-Upload Integration](#next-s3-upload-integration)
+    -   [Storj storage Integration (with S3 client)](#storj-storage-integration-with-s3-client)
+    -   [File upload to Local directory](#file-upload-to-local-directory)
+    -   [Sample `.env` File](#sample-env-file)
 
 ## Project Setup
 
@@ -43,7 +43,7 @@ This project demonstrates how to build a file upload application using multiple 
     npm install @neondatabase/serverless
     ```
 
-## AWS S3 Integration
+## File Upload with AWS S3
 
 1. **Create a new AWS S3 bucket** (use default settings).
 2. **Enable the 'Block public access'** for public access.
@@ -98,7 +98,7 @@ This project demonstrates how to build a file upload application using multiple 
 10. **Create a file upload UI using `react-dropzone`.**
     - `/app/(routes)/s3/page.tsx`
 
-## Edgestore Integration
+## File Upload with Edgestore
 
 1. **Install dependencies:**
     ```bash
@@ -126,7 +126,7 @@ This project demonstrates how to build a file upload application using multiple 
     - `/app/(routes)/edgestore/_components/multi-file-uploader.tsx`
     - `/components/edgestore/multi-file-dropzone.tsx`
 
-## Edgestore with AWS S3 Integration
+## File Upload with Edgestore and AWS S3
 
 1. **Create an API route** with AWS provider:
     - `app/api/edgestore-s3/[...edgestore]/route.ts`
@@ -136,7 +136,7 @@ This project demonstrates how to build a file upload application using multiple 
 4. **Create a page component** for uploading images using Edgestore with AWS S3:
     - `app/(routes)/edgestore-s3/page.tsx`
 
-## Bunny CDN Integration
+## File Upload with Bunny CDN
 
 1. **Create a Bunny CDN account.** ([Bunny.net](https://bunny.net/))
 2. **Create a new storage zone.** (Click 'Storage' > Create new storage zone > Will redirect to file manager dashboard)
@@ -155,7 +155,7 @@ This project demonstrates how to build a file upload application using multiple 
 
 -   [Reference Article 🔗](https://50bytesjournal.hashnode.dev/nextjs-and-bunny-cdn-complete-guide-to-image-uploading-with-server-actions)
 
-## Cloudflare R2 Integration (with S3 client)
+## File Upload with Cloudflare R2 (with S3 client)
 
 1. **Install AWS SDK libraries** (If you don't installed)
     ```bash
@@ -192,7 +192,7 @@ This project demonstrates how to build a file upload application using multiple 
 7. **Create a page component** for uploading images using Edgestore with Bunny:
     - `app/(routes)/cloudflare-r2/page.tsx`
 
-## Firebase Storage Integration
+## File Upload with Firebase Storage
 
 1. **Install Firebase SDK:**
     ```bash
@@ -217,14 +217,12 @@ This project demonstrates how to build a file upload application using multiple 
 7. **Ensure security rules** in the Firebase Console to control access.
     - Go to Storage > Rules and define appropriate access control rules
 
-## Backblaze B2 Integration
+## File Upload with Backblaze B2
 
 1. **Install Backblaze B2 SDK:**
-
     ```bash
     npm install backblaze-b2 @types/backblaze-b2
     ```
-
 2. **Create a Backblaze account and bucket**
 3. **Generate API keys** and store them in `.env`.
     ```bash
@@ -240,7 +238,7 @@ This project demonstrates how to build a file upload application using multiple 
 6. **Create a page component** for uploading images to Backblaze B2 storage:
     - `app/(routes)/backblaze-b2/page.tsx`
 
-## Next-S3-Upload Integration
+## File Upload with Next-S3-Upload
 
 1. **Install Next-S3-Upload package:**
     ```bash
@@ -264,7 +262,7 @@ This project demonstrates how to build a file upload application using multiple 
 
 -   NOTE: Please see the documentation for more information!
 
-## Storj storage Integration (with S3 client)
+## File Upload with Storj storage (with S3 client)
 
 1.  Create/Login your account with FREE-TRIAL
 2.  **Create new bucket** by navigating to 'Browse' on the left side menu.
@@ -290,7 +288,7 @@ This project demonstrates how to build a file upload application using multiple 
     Because it's a Decentralized storage, so its only allowed to generate the accessGrant token through Command (CMD) after uploaded the file
 -   SAMPLE_IMAGE_URL: `https://link.storjshare.io/raw/<accessGrantId>/<bucketName>/<fileName>`
 
-## File upload to Local directory
+## File upload with Local directory
 
 1. **Create your local file directory** to store your files
     - `/public/uploads`
@@ -299,9 +297,30 @@ This project demonstrates how to build a file upload application using multiple 
 3. **Create a page component** for uploading files
     - `/app/(routes)/local-directory/page.tsx`
 
-
-
 🎉 You can now test your application and see that file uploads work seamlessly with multiple storage providers.
+
+## File Upload with Cloudinary Storage
+
+1. **Install dependencies:**
+    ```bash
+    npm install cloudinary
+    ```
+2. **Create a new project in Cloudinary** and copy the environment variables into `.env`.
+   (Go to the [Cloudinary](https://cloudinary.com/))
+    ```bash
+    NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=your_cloud_name
+    NEXT_PUBLIC_CLOUDINARY_API_KEY=your_api_key
+    NEXT_PUBLIC_CLOUDINARY_API_SECRET=your_api_secret_key
+    ```
+3. **Create utils for Cloudinary integration:**
+    - `utils/cloudinary.ts`
+4. **Create API routes** for Cloudinary Storage:
+    - `app/api/cloudinary/base64/route.ts`
+    - `app/api/cloudinary/upload-stream/route.ts`
+5. **Create a page component** for uploading images to Cloudinary storage:
+    - `app/(routes)/cloudinary/page.tsx`
+
+
 
 ## Sample `.env` File
 
