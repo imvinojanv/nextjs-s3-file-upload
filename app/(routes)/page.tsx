@@ -15,6 +15,7 @@ const routes = [
     { name: "Cloudinary Storage", href: "/cloudinary" },
     { name: "ImageKit.io", href: "/imagekit" },
     { name: "Uploadcare", href: "/uploadcare" },
+    { name: "UploadThing", href: "/uploadthing" },
 ]
 
 const Home = () => {

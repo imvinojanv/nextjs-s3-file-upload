@@ -255,3 +255,16 @@ SAMPLE URL: `https://link.storjshare.io/raw/<access-grant-id>/<bucketName>/<file
     - Go to Uploadcare console > Click Settings > Click Storage > Connect Bucket
     - Update Policies and CORS accordingly
     🎊 Try the application, It will upload the files to Uploadcare storage and S3 bucket
+
+
+
+## File Upload with UploadThing
+-   Install the UploadThing (`npm install uploadthing @uploadthing/react`)
+-   Create an account on UploadThing and get the API keys then paste them into .env file
+-   Create API route and API Core for UploadThing to upload files
+    `/app/api/uploadthing/core.ts`
+    `/app/api/uploadthing/route.ts`
+-   Create a utils file for UploadThing
+    `/utils/uploadthing.ts`
+-   Update the `tailwind.config.mjs` file with UploadThings
+-   Update the `layout.tsx` file with SSR Plugin
