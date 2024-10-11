@@ -301,11 +301,11 @@ This project demonstrates how to build a file upload application using multiple 
 
 ## File Upload with Cloudinary Storage
 
-1. **Install dependencies:**
+1. **Install the Cloudinary SDK:**
     ```bash
     npm install cloudinary
     ```
-2. **Create a new project in Cloudinary** and copy the environment variables into `.env`.
+2. **Create a new account in Cloudinary** and copy the environment variables into `.env`.
    (Go to the [Cloudinary](https://cloudinary.com/))
     ```bash
     NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=your_cloud_name
@@ -320,7 +320,31 @@ This project demonstrates how to build a file upload application using multiple 
 5. **Create a page component** for uploading images to Cloudinary storage:
     - `app/(routes)/cloudinary/page.tsx`
 
+## File Upload with ImageKit.io
 
+1. **Install the ImageKit SDK:**
+    ```bash
+    npm install imagekitio-next
+    # OR
+    npm install imagekit
+    ```
+2. **Create a new account in ImageKit** and copy the environment variables into `.env`.
+   (Go to the [ImageKit](https://imagekit.io/))
+    ```bash
+    NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY=your_public_key
+    NEXT_PUBLIC_IMAGEKIT_PRIVATE_KEY=your_private_key
+    NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT=your_url_endpoint
+    ```
+3. **Create utils for ImageKit integration:**
+    - `utils/imagekit.ts`
+4. **Create an API route** for ImageKit Storage:
+    - `app/api/imagekit/route.ts`
+5. **Create a page component** for uploading images to ImageKit storage:
+    - `app/(routes)/imagekit/page.tsx`
+    - `app/(routes)/imagekit/next/page.tsx`     (for `imagekitio-next`, reffered the imageKit documentation for next.js)
+6. **Connect the S3 Bucket** to ImageKit storage (Only for accessing files to display, not for upload)
+7. **Create the S3 bucket OR Use the existing bucket** using the credentials
+8. **Create new URL endpoint** with connected S3 server
 
 ## Sample `.env` File
 
