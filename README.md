@@ -341,10 +341,35 @@ This project demonstrates how to build a file upload application using multiple 
     - `app/api/imagekit/route.ts`
 5. **Create a page component** for uploading images to ImageKit storage:
     - `app/(routes)/imagekit/page.tsx`
-    - `app/(routes)/imagekit/next/page.tsx`     (for `imagekitio-next`, reffered the imageKit documentation for next.js)
+    - `app/(routes)/imagekit/next/page.tsx` (for `imagekitio-next`, reffered the imageKit documentation for next.js)
 6. **Connect the S3 Bucket** to ImageKit storage (Only for accessing files to display, not for upload)
 7. **Create the S3 bucket OR Use the existing bucket** using the credentials
 8. **Create new URL endpoint** with connected S3 server
+
+## File Upload with Uploadcare
+
+1. **Install the Uploadcare SDKs:**
+    ```bash
+    npm install @uploadcare/react-uploader # Image upload component from Uploadcare
+    npm install @uploadcare/nextjs-loader # Image loader for Next.js (to convert jpg/png -> avif)
+    npm install @uploadcare/upload-client # File upload API client
+    ```
+2. **Create a new account in Uploadcare** and copy the environment variables into `.env`.
+   (Go to the [Uploadcare](https://uploadcare.com/))
+    ```bash
+    NEXT_PUBLIC_UPLOADCARE_PUBLIC_KEY=your_public_key
+    NEXT_PUBLIC_UPLOADCARE_SECRET_KEY=your_secret_key
+    ```
+3. **Create an API route** for Uploadcare Storage:
+    - `app/api/uploadcare/route.ts`
+4. **Create a page component** for uploading images to Uploadcare storage:
+    - `app/(routes)/uploadcare/page.tsx`    (Implemented the all possible ways to upload the files)
+5. **Use the Uploadcare's ImageLoader** to optimize (png to avif) and load the image
+6. **Connect the S3 Bucket** to Uploadcare storage (Only for copying or backuping the files to S3)
+7. **Create a S3 bucket** 
+8. Go to Uploadcare console > Click Settings > Click Storage > Connect Bucket
+9. **Update the S3 bucket policies and CORS** with Uploadcare configs
+
 
 ## Sample `.env` File
 

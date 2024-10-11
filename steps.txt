@@ -246,7 +246,7 @@ SAMPLE URL: `https://link.storjshare.io/raw/<access-grant-id>/<bucketName>/<file
 -   Create API routes for Uploadcare to upload files
     `/app/api/uploadcare/route.ts`
 -   Create the file upload component to upload the file from frontend
-    `/app/(routes)/imagekit/page.tsx`
+    `/app/(routes)/uploadcare/page.tsx`
     -   Implement the all possible ways to upload the files
 -   Implement the Uploadcare ImageLoader for next.js
 
