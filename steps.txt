@@ -234,3 +234,24 @@ SAMPLE URL: `https://link.storjshare.io/raw/<access-grant-id>/<bucketName>/<file
     Connect the S3 with all creadentials to the ImageKit
     Create a new URL endpoint with connected S3 server
     (Only for accessing files to be displayed, not for uploading)
+
+
+
+## File Upload with Uploadcare
+-   Install Uploadcare packages:
+    `npm install @uploadcare/react-uploader` : Image upload component from Uploadcare
+    `npm install @uploadcare/nextjs-loader` : Image loader for Next.js (jpg/png -> avif)
+    `npm install @uploadcare/upload-client` : File upload API client
+-   Create an account on Uploadcare and get the API keys then paste them into .env file
+-   Create API routes for Uploadcare to upload files
+    `/app/api/uploadcare/route.ts`
+-   Create the file upload component to upload the file from frontend
+    `/app/(routes)/imagekit/page.tsx`
+    -   Implement the all possible ways to upload the files
+-   Implement the Uploadcare ImageLoader for next.js
+
+-   Connect the S3 Bucket to Upload file through the Uploadcare
+    - Create a new S3 bucket
+    - Go to Uploadcare console > Click Settings > Click Storage > Connect Bucket
+    - Update Policies and CORS accordingly
+    🎊 Try the application, It will upload the files to Uploadcare storage and S3 bucket
