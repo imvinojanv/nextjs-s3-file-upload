@@ -266,5 +266,7 @@ SAMPLE URL: `https://link.storjshare.io/raw/<access-grant-id>/<bucketName>/<file
     `/app/api/uploadthing/route.ts`
 -   Create a utils file for UploadThing
     `/utils/uploadthing.ts`
+-   Create the file upload component to upload the file from frontend
+    `/app/(routes)/uploadthing/page.tsx`
 -   Update the `tailwind.config.mjs` file with UploadThings
 -   Update the `layout.tsx` file with SSR Plugin
