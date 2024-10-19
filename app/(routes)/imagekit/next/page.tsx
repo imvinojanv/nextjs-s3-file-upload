@@ -101,7 +101,7 @@ const NextImageKit = () => {
                     isPrivateFile={false}
                     useUniqueFileName={true}
                     responseFields={["tags"]}
-                    validateFile={(file) => file.size < 2000000}
+                    validateFile={(file) => file.size < 20000000}
                     folder={"/sample-folder"}
                     overwriteFile={true}
                     overwriteAITags={true}

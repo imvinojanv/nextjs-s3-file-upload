@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/tabs";
 import FileUploadForm from "@/app/_components/file-upload-form";
 import FileUploaderDialog1 from "@/app/_components/file-uploader-dialog-1";
-import FileUploaderDialog2 from "../_components/file-uploader-dialog-2";
+import FileUploaderDialog2 from "@/app/_components/file-uploader-dialog-2";
 
 const S3Page = () => {
     return (

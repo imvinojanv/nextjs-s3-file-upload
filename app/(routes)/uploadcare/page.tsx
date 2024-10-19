@@ -113,7 +113,7 @@ const UploadcareUpload = () => {
                     onFileUploadFailed={handleUploadFailed}
                     confirmUpload={true}        // Enables user confirmation for starting uploads.
                     imgOnly={true}      // Accept images only
-                    maxLocalFileSizeBytes={10000000}     // Maximum file size: 10MB
+                    maxLocalFileSizeBytes={20000000}     // Maximum file size: 10MB
                 />
                 {files.length > 0 &&
                     files.map((file) => (
