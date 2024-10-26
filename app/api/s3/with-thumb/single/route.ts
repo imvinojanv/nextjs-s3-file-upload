@@ -30,7 +30,7 @@ export async function POST(
 
     const thumbBuffer = await sharp(fileBuffer)
         .resize(200, 200, { fit: 'inside' })
-        .jpeg({ quality: 60 })  // Set quality to 60%
+        .jpeg({ quality: 100 })  // Set quality to 60%
         .toBuffer();
 
     const thumbUploadParams = {

@@ -1,10 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { PutObjectCommand } from "@aws-sdk/client-s3";
+import { neon } from '@neondatabase/serverless';
 import sharp from "sharp";
 
 import { s3Client } from "@/utils/s3-client";
 
 export async function POST(request: NextRequest) {
+    if (!process.env.DATABASE_URL) return NextResponse.json(null, { status: 500 });
+
+    const sql = neon(process.env.DATABASE_URL);
+
     const formData = await request.formData();
     const files = formData.getAll("file") as File[];
 
@@ -17,7 +22,7 @@ export async function POST(request: NextRequest) {
             const timestamp = Date.now().toString();
             const sanitizedFileName = file.name.trim().replace(/\s+/g, "-").toLowerCase();
             const fileName = `${timestamp}-${sanitizedFileName}`;
-            const thumbFileName = `thumb/${timestamp}-${sanitizedFileName}`;
+            const thumbFileName = `thumbnails/${timestamp}-${sanitizedFileName}`;
 
             try {
                 // Convert file to buffer
@@ -35,7 +40,7 @@ export async function POST(request: NextRequest) {
                 // Create thumbnail
                 const thumbBuffer = await sharp(fileBuffer)
                     .resize(200, 200, { fit: "inside" })
-                    .jpeg({ quality: 60 })
+                    .jpeg({ quality: 80 })
                     .toBuffer();
 
                 // Thumbnail upload parameters
@@ -55,11 +60,22 @@ export async function POST(request: NextRequest) {
                 const fileUrl = `https://${process.env.NEXT_AWS_S3_BUCKET_NAME}.s3.${process.env.NEXT_AWS_S3_REGION}.amazonaws.com/${fileName}`;
                 const thumbUrl = `https://${process.env.NEXT_AWS_S3_BUCKET_NAME}.s3.${process.env.NEXT_AWS_S3_REGION}.amazonaws.com/${thumbFileName}`;
 
-                return {
-                    fileName: file.name,
-                    url: fileUrl,
-                    thumbUrl,
-                };
+                try {
+                    // Create the user table if it does not exist
+                    await sql('CREATE TABLE IF NOT EXISTS "s3" (name TEXT, img_url TEXT, thumb_url TEXT)');
+            
+                    // Store the file URL in the database
+                    await sql`INSERT INTO s3 (name, img_url, thumb_url) VALUES (${file.name}, ${fileUrl}, ${thumbUrl})`;
+            
+                    return {
+                        fileName: file.name,
+                        url: fileUrl,
+                        thumbUrl,
+                    };
+                } catch (error) {
+                    console.error("Error uploading file: ", error);
+                    return { fileName: file.name, error: "Failed to updated in database" };
+                }
             } catch (error) {
                 console.error("Error uploading file: ", error);
                 return { fileName: file.name, error: "Failed to upload file" };
